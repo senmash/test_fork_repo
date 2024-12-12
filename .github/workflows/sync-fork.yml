@@ -2,7 +2,7 @@ name: Sync Fork
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight UTC
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Fork
-        uses: actions/checkout@v3
+    - name: Checkout Fork
+      uses: actions/checkout@v3
 
-      - name: Add Upstream
-        run: git remote add upstream https://github.com/Gayan-98/test_fork_repo.git
+    - name: Add Upstream
+      run: git remote add upstream https://github.com/Gayan-98/test_fork_repo.git
 
-      - name: Fetch and Merge
-        run: |
-          git fetch upstream
-          git checkout main
-          git merge upstream/main --allow-unrelated-histories
-          git push origin main
+    - name: Fetch and Merge
+      run: |
+        git fetch upstream
+        git checkout main
+        git merge upstream/main --allow-unrelated-histories
+        git push origin main
